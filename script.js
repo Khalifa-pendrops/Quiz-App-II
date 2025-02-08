@@ -11,10 +11,12 @@ const answerBtnContainer = document.getElementById("answerContainer");
 
 let currentQuestionIndex = 0;
 let score = 0;
+let selectedAnswers = {};
 
 const startQuiz = () => {
   currentQuestionIndex = 0;
   score = 0;
+  selectedAnswers = {};
   resultsContainer.classList.add("hide");
   topMainContainer.classList.remove("hide");
   questionText.classList.remove("hide");
@@ -26,16 +28,27 @@ const displayQuestions = () => {
   const currentQuestion = questions[currentQuestionIndex];
   questionText.innerText = currentQuestion.question;
 
-  currentQuestion.answers.forEach((answer) => {
+  currentQuestion.answers.forEach((answer, index) => {
     const answerElement = document.createElement("button");
     answerElement.innerText = answer.text;
     answerElement.classList.add("btn");
-    answerElement.addEventListener("click", () => {
+    if (selectedAnswers[currentQuestionIndex] === index) {
       answerElement.classList.add("active");
+    }
+    answerElement.addEventListener("click", () => {
+      unselectAnswer();
+      answerElement.classList.add("active");
+      selectedAnswers[currentQuestionIndex] = index;
       selectAnswer(answer.right);
     });
     answerBtnContainer.appendChild(answerElement);
   });
+
+  if (selectedAnswers[currentQuestionIndex] === undefined) {
+    nextBtn.classList.add("hide");
+  } else {
+    nextBtn.classList.remove("hide");
+  }
 };
 
 const selectAnswer = (isRight) => {
@@ -44,6 +57,11 @@ const selectAnswer = (isRight) => {
     console.log("Correct!");
   }
   nextBtn.classList.remove("hide");
+};
+
+const unselectAnswer = () => {
+  const buttons = answerBtnContainer.querySelectorAll(".btn");
+  buttons.forEach((btn) => btn.classList.remove("active"));
 };
 
 nextBtn.addEventListener("click", () => {
@@ -71,7 +89,6 @@ const updateProgress = () => {
 };
 
 const resetQuiz = () => {
-  //   nextBtn.classList.add("hide");
   answerBtnContainer.innerHTML = "";
 };
 
@@ -81,13 +98,11 @@ const displayResult = () => {
       (resultsContainer.innerText = `Your final score in the Quiz is: ${score} / ${questions.length}`)
     );
   }, 2000);
-  //   updateProgress();
 };
 
 resetBtn.addEventListener("click", () => {
   topMainContainer.classList.remove("hide");
-  resultsContainer.classList.add("hide");
-  progressBtn.innerText = "";
+    resultsContainer.classList.add("hide");
   startQuiz();
 });
 

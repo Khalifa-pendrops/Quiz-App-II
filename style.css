@@ -18,7 +18,7 @@ body {
 }
 
 header h1 {
-    color: rgb(54, 173, 220);
+    color: rgb(100, 28, 100);
 
 }
 
@@ -106,5 +106,5 @@ main {
 }
 
 .active {
-    background-color: rgb(54, 173, 220);
+    background-color: rgb(100, 28, 100);
 }
