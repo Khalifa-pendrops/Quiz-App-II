@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Quiz App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" type="module"></script>
+    <script src="questions.js" type="module"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Simple Quiz App</h1>
+    </header>
+    <main>
+      <div id="topMainContainer" class="top_main_container">
+        <h4 id="questions"></h4>
+        <div id="answerContainer" class="answerContainer"></div>
+        <p id="scoreContainer" class="scoreContainer"></p>
+        <button id="prevButton" class="prev_btn">Previous</button>
+        <button id="nextButton" class="next_btn">Next</button>
+      </div>
+      <div class="bottom_main_container">
+        <p class="progress" id="progress"></p>
+        <button id="resetButton" class="reset_btn">Reset</button>
+      </div>
+    </main>
+  </body>
+</html>
