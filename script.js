@@ -102,7 +102,7 @@ const displayResult = () => {
 
 resetBtn.addEventListener("click", () => {
   topMainContainer.classList.remove("hide");
-    resultsContainer.classList.add("hide");
+  resultsContainer.classList.add("hide");
   startQuiz();
 });
 

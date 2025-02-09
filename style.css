@@ -15,10 +15,13 @@ body {
     gap: 2rem;
     height: 100vh;
     text-align: center;
+    width: 100%;
 }
 
 header h1 {
     color: rgb(100, 28, 100);
+    text-decoration: underline;
+
 
 }
 
@@ -40,12 +43,16 @@ main {
 }
 
 .answerContainer {
-    margin-top: 1rem;
+    margin-top: 1.6rem;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
     margin-bottom: 1.6rem;
+    width: 100%;
+    flex-wrap: wrap;
 }
+
 
 .btn,
 .reset_btn {
@@ -107,4 +114,12 @@ main {
 
 .active {
     background-color: rgb(100, 28, 100);
+}
+
+@media (max-width: 817px) {
+
+    .questions {
+        text-align: center;
+        text-wrap: wrap;
+    }
 }
