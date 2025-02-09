@@ -83,9 +83,9 @@ prevBtn.addEventListener("click", () => {
 });
 
 const updateProgress = () => {
-  progressBtn.innerText = `Progress:  ${currentQuestionIndex + 1} out of ${
+  progressBtn.innerText = `Progress: Question ${currentQuestionIndex + 1} of ${
     questions.length
-  } questions`;
+  }`;
 };
 
 const resetQuiz = () => {
